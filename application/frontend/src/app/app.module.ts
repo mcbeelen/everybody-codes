@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { CameraListComponent } from './camera/list/camera-list.component';
 import { CameraOverviewComponent } from './camera/overview/camera-overview.component';
 import { CameraServiceImpl } from './camera/camera-service';
+import { CameraMapComponent } from './camera/map/camera-map.component';
 import { CameraBackend } from './camera-backend';
 import { CameraApplicationMaterialModule } from './camera-app-material'
 
@@ -16,7 +17,9 @@ import { CameraApplicationMaterialModule } from './camera-app-material'
   declarations: [
     AppComponent,
     CameraOverviewComponent,
-    CameraListComponent
+    CameraListComponent,
+    CameraMapComponent,
+
   ],
   imports: [
     BrowserModule,

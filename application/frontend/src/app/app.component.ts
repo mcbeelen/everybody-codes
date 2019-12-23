@@ -10,8 +10,7 @@ export class AppComponent {
 
   constructor(
 
-      @Inject("CameraService") private cameraService: CameraService
-      ) { }
+      @Inject("CameraService") private cameraService: CameraService) { }
 
 
   title = 'Camera Frontend Application';

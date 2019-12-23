@@ -14,8 +14,6 @@ export class CameraOverviewComponent implements OnChanges {
 
   @Input('cameras') cameras: Camera[];
 
-
-
   ngOnChanges(changes: SimpleChanges) {
       let cameras = changes.cameras.currentValue
       for (let camera of cameras) {

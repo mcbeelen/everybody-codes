@@ -1,0 +1,56 @@
+import { Component } from '@angular/core';
+import { TestBed, ComponentFixture, async } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { Camera, buildCamera } from '../camera';
+import { CameraOverviewComponent } from './camera-overview.component';
+import { CameraListComponent } from '../list/camera-list.component';
+import { CameraApplicationMaterialModule } from '../../camera-app-material'
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatCardModule } from '@angular/material';
+
+describe('CameraOverviewComponent', () => {
+
+  let componentUnderTest: CameraOverviewComponent;
+
+  beforeEach(() => {
+     TestBed.configureTestingModule({
+            imports: [
+                CameraApplicationMaterialModule,
+                FlexLayoutModule
+            ],
+            providers: [CameraOverviewComponent]
+          });
+
+      componentUnderTest = TestBed.get(CameraOverviewComponent);
+  });
+
+  it(`should put 501 in first column'`, () => {
+
+    let isFirstChange = () => true;
+
+    let camera = buildCamera("501", "Three", 3.0, 3.0);
+    let changes: {
+      "cameras": {
+        "currentValue" : [camera],
+        "previousValue" :[],
+         "firstChange": true,
+         "isFirstChange" : isFirstChange
+      }
+    };
+
+    componentUnderTest.ngOnChanges(changes)
+    expect(componentUnderTest).toBeTruthy()
+    console.log(componentUnderTest)
+    expect(componentUnderTest.camerasInFirstColumn[0].cameraNumber).toBe("501");
+  });
+
+  it(`should put 500 in second column'`, () => {
+    componentUnderTest.cameras = [buildCamera("500", "Five", 3.0, 3.0)];
+
+    expect(componentUnderTest).toBeTruthy()
+    expect(componentUnderTest.camerasInSecondColumn[0].cameraNumber).toBe("500");
+  });
+
+
+});
+
