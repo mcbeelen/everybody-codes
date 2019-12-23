@@ -10,6 +10,13 @@ mvn clean install
 java -jar application\cli\target\cli-exec.jar --help
 java -jar application\cli\target\cli-exec.jar 
 java -jar application\cli\target\cli-exec.jar --name Neude
+
+
+java -jar application\backend\target\backend-exec.jar 
+
+http://localhost:8080/actuator/health
+
+http://localhost:8080/api/cameras/
 ```
 
 

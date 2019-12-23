@@ -1,5 +1,8 @@
 package com.github.mcbeelen.infi.ec.camera
 
+import org.springframework.stereotype.Service
+
+@Service
 class CameraSearchService(private val cameraRepository: CameraRepository) {
 
     fun findCamerasByName(partialName: String) : List<SpeedCamera> {

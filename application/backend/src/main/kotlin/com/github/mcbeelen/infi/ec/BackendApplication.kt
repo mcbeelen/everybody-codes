@@ -5,9 +5,9 @@ import org.springframework.boot.runApplication
 
 
 @SpringBootApplication
-class OefffBackendApplication
+class BackendApplication
 
 
 fun main(args: Array<String>) {
-    runApplication<OefffBackendApplication>(*args)
+    runApplication<BackendApplication>(*args)
 }

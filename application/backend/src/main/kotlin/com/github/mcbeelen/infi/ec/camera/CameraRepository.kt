@@ -1,5 +1,10 @@
 package com.github.mcbeelen.infi.ec.camera
 
+import org.springframework.boot.actuate.health.Health
+import org.springframework.boot.actuate.health.Health.down
+import org.springframework.boot.actuate.health.Health.up
+import org.springframework.boot.actuate.health.HealthIndicator
+import org.springframework.stereotype.Repository
 import java.io.File
 import java.nio.file.Paths
 
@@ -7,7 +12,7 @@ interface CameraRepository {
     fun listAll(): List<SpeedCamera>
 }
 
-class CsvCameraRepository(private val path: String) : CameraRepository {
+class CsvCameraRepository(private val path: String) : CameraRepository, HealthIndicator {
 
     private val cameras: List<SpeedCamera> by lazy {
         readCamerasFromFile()
@@ -26,6 +31,19 @@ class CsvCameraRepository(private val path: String) : CameraRepository {
 
     override fun listAll(): List<SpeedCamera> {
         return cameras
+    }
+
+    override fun health(): Health {
+        try {
+            if (cameras.isNotEmpty()) {
+                return up().build()
+            } else {
+                return down().withDetail("NUMBER_OF_CAMERAS", "No cameras were properly read from data file").build()
+            }
+        } catch (e: Exception) {
+            return down(e).build()
+        }
+
     }
 }
 
