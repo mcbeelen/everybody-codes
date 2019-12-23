@@ -1,9 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CameraListComponent } from './camera-list/camera-list.component';
+import { CameraListComponent } from './camera/list/camera-list.component';
+import { CameraServiceImpl } from './camera/camera-service';
+import { CameraBackend } from './camera-backend';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CameraApplicationMaterialModule } from './camera-app-material'
 
 @NgModule({
   declarations: [
@@ -12,9 +17,15 @@ import { CameraListComponent } from './camera-list/camera-list.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    CameraApplicationMaterialModule
   ],
-  providers: [],
+   providers: [
+          CameraBackend,
+          {provide: 'CameraService', useClass: CameraServiceImpl},
+          ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

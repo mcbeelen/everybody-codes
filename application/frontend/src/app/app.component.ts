@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { CameraService } from './camera/camera-service'
 
 @Component({
   selector: 'camera-application',
@@ -6,5 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  constructor(
+
+      @Inject("CameraService") private cameraService: CameraService
+      ) { }
+
+
   title = 'Camera Frontend Application';
+
+  cameras = []
+
+   ngOnInit() {
+        let cameraObserver = this.cameraService.getCameras()
+        cameraObserver.subscribe(data => this.cameras = data)
+    }
 }
