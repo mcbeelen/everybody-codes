@@ -3,21 +3,30 @@
 Een repository om te laten zien hoe jij code schrijft en over code denkt.
 Een startpunt voor een goed gesprek over ons vak!
 
-##
+## Helpfull commands:
 
+### Build project ===
 ```
 mvn clean install
+```
+
+### Demo CLI ===
+```
 java -jar application\cli\target\cli-exec.jar --help
 java -jar application\cli\target\cli-exec.jar 
 java -jar application\cli\target\cli-exec.jar --name Neude
+````
 
-
-java -jar application\backend\target\backend-exec.jar 
-
-http://localhost:8080/actuator/health
-
-http://localhost:8080/api/cameras/
+### Demo Backend ===
 ```
+java -jar application\backend\target\backend-exec.jar 
+```
+
+Open URLs
+* [http://localhost:8080/actuator/health](http://localhost:8080/actuator/health)
+* [http://localhost:8080/api/cameras/](http://localhost:8080/api/cameras/)
+* [http://localhost:8080/index.html](http://localhost:8080/index.html)
+
 
 
 ## Context

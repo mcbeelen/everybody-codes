@@ -58,12 +58,10 @@
 
     <dependencies>
 
-        <!--
         <dependency>
             <groupId>${this.project.groupId}</groupId>
             <artifactId>frontend</artifactId>
         </dependency>
-        -->
 
         <dependency>
             <groupId>commons-io</groupId>
@@ -169,11 +167,10 @@
                 </executions>
             </plugin>
 
-            <!--
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
-                <version>3.1.0</version>
+                <version>3.1.1</version>
                 <executions>
                     <execution>
                         <id>unpack</id>
@@ -190,7 +187,7 @@
                                     <type>jar</type>
                                     <overWrite>false</overWrite>
                                     <outputDirectory>${project.build.directory}/unpacked-resources/</outputDirectory>
-                                    <includes>static/*.*</includes>
+                                    <includes>static/**/*.*</includes>
                                 </artifactItem>
                             </artifactItems>
                         </configuration>
@@ -219,7 +216,6 @@
                     <value></value>
                 </configuration>
             </plugin>
-                                -->
 
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -235,7 +231,7 @@
                         <configuration>
                             <resources>
                                 <resource>
-                                    <directory>${project.build.directory}/unpacked-resources/static</directory>
+                                    <directory>${project.build.directory}/unpacked-resources/static/frontend</directory>
                                     <targetPath>public</targetPath>
                                 </resource>
                             </resources>
@@ -249,7 +245,6 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M4</version>
             </plugin>
-
 
             <plugin>
                 <groupId>org.jetbrains.kotlin</groupId>

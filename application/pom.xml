@@ -17,9 +17,7 @@
     <modules>
         <module>backend</module>
         <module>cli</module>
-        <!--
         <module>frontend</module>
-        -->
     </modules>
 
 </project>
