@@ -9,12 +9,12 @@ class CameraRepositoryTest {
 
     @Test
     fun itShouldReadTheDataFromTheCsv() {
-
-        val cameraRepository = CameraRepository()
+        val path = System.getProperty("user.dir") + "/../../data/cameras-defb.csv"
+        val cameraRepository = CsvCameraRepository(path)
 
         val allCameras = cameraRepository.listAll()
 
-        assertThat(allCameras.size, equalTo(89))
+        assertThat(allCameras.size, equalTo(88))
     }
 
 
