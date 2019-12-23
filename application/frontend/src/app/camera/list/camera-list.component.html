@@ -1,14 +1,12 @@
-
 <mat-card *ngFor="let camera of cameras">
-
-  <mat-card-title fxLayout="row">
-    <div fxFlex="80">{{camera.description}}</div>
-  </mat-card-title>
 
   <mat-card-content>
 
-      {{camera.latitude}}
-      {{camera.longitude}}
+    <span>{{camera.cameraNumber}}</span>
+    <span>{{camera.description}}</span>
+    <span>{{camera.latitude}}</span>
+    <span>{{camera.longitude}}</span>
+
 
   </mat-card-content>
 </mat-card>
