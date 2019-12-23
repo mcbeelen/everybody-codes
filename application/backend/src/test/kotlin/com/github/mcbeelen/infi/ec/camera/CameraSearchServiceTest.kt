@@ -6,13 +6,13 @@ import com.natpryce.hamkrest.assertion.assertThat
 import com.natpryce.hamkrest.equalTo
 import org.junit.Test
 
-class CameraSeachServiceTest {
+class CameraSearchServiceTest {
 
     @Test
     fun itShouldReturnSixCamerasForNeude() {
 
-        val cameraSeachService = CameraSeachService(buildCsvCameraRepositoryForTests())
-        val camerasForNeude = cameraSeachService.findCamerasByName("Neude")
+        val cameraSearchService = CameraSearchService(buildCsvCameraRepositoryForTests())
+        val camerasForNeude = cameraSearchService.findCamerasByName("Neude")
         assertThat(camerasForNeude.size, equalTo(6))
         assertThat(camerasForNeude, allElements(cameraNumberInRange(501 .. 507)))
 

@@ -3,6 +3,16 @@
 Een repository om te laten zien hoe jij code schrijft en over code denkt.
 Een startpunt voor een goed gesprek over ons vak!
 
+##
+
+```
+mvn clean install
+java -jar application\cli\target\cli-exec.jar --help
+java -jar application\cli\target\cli-exec.jar 
+java -jar application\cli\target\cli-exec.jar --name Neude
+```
+
+
 ## Context
 
 Mogelijk ben je hier gekomen omdat je een tweede gesprek hebt met ons.
