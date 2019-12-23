@@ -9,8 +9,7 @@ class CameraRepositoryTest {
 
     @Test
     fun itShouldReadTheDataFromTheCsv() {
-        val path = System.getProperty("user.dir") + "/../../data/cameras-defb.csv"
-        val cameraRepository = CsvCameraRepository(path)
+        val cameraRepository = buildCsvCameraRepositoryForTests()
 
         val allCameras = cameraRepository.listAll()
 
@@ -18,6 +17,9 @@ class CameraRepositoryTest {
     }
 
 
+}
 
-
+fun buildCsvCameraRepositoryForTests(): CsvCameraRepository {
+    val path = System.getProperty("user.dir") + "/../../data/cameras-defb.csv"
+    return CsvCameraRepository(path)
 }

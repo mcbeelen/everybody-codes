@@ -6,4 +6,6 @@ typealias Longitude = Double
 
 // Camera;Latitude;Longitude
 data class SpeedCamera(val cameraNumber: String, val description: String, val latitude: Latitude, val longitude: Longitude) {
+    val descriptionIndex : String = description.toUpperCase()
+
 }
